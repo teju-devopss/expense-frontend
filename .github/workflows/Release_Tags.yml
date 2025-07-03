@@ -1,0 +1,23 @@
+name: Release_Tags
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  CI_Steps:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SAST Scans
+        run: echo sast scans
+      - name: SCA Scans
+        run: echo sCA scans
+
+      - name: secrets in Source Code
+        run: echo secrets in source code
+
+      - name: Produce Artifact
+        run: echo Produce Artifact
