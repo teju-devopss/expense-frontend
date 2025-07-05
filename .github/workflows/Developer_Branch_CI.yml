@@ -3,16 +3,10 @@ on:
   push:
     branches:
       - 'XPNS-*'
+env:
+  service_name: expense-frontend
 
 jobs:
   CI_Steps:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Unit Tests
-        run: echo Unit Tests
-      - name: Integration Testing
-        run: echo Integration Testing
-      - name: Code Quality
-        run: echo code Quality
+    uses: teju-devopss/github-actions/.github/workflows/Developer_Branch_CI.yml@main
+    secrets: inherit

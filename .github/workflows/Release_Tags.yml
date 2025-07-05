@@ -3,21 +3,9 @@ on:
   push:
     tags:
       - 'v*'
+env:
+  service_name: expense-frontend
 
 jobs:
   CI_Steps:
-    runs-on: self-hosted
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: SAST Scans
-        run: echo sast scans
-      - name: SCA Scans
-        run: echo sCA scans
-
-      - name: secrets in Source Code
-        run: echo secrets in source code
-
-      - name: Produce Artifact
-        run: echo Produce Artifact
+    uses: teju-devopss/github-actions/.github/workflows/Release_Tags.yml@main
